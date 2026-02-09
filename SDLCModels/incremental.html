@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incremental ehk inkrementaalne Arendusmudel</title>
+</head>
+<body>
+    <h1>inkrementaalne Arendusmudel</h1><br>
+    <p>
+        Inkrementaalne arendusmudel on üks viis kuidas lahendada kosemudeli jäika tsükli, see aitab arendusmeeskonna <br>
+        toime tulla muudatusedega paremini. Muudatused võivad tulla kas äritegevusest, kliendi soovidest, turu olukorra <br>
+        muutmisest, tehnoloogia muutmisest, seaduse muudatustest või siis lõppkasutaja tagasisidest. <br>
+        Kuna kosemudelis keset arendustööd on muudatusetega toimetulek keeruline, on kosemudeli kasutamise puhul <br>
+        muudatuste sisseviimine üsna kulukas, siinkohal tulebki appi inkrementaalne arendusmudel. Mudel ise on <br>
+        ajagraafikupõhine ja ei tugine, erinevalt kosemudelist, täielikult valmiskirjeldatud kavandile. Selles mudelis <br>
+        saab arendada erinevaid programmi osi samaaegselt või erinevatel aegadel. inkrementaalses arendusmudelis aitab <br>
+        samaaegselt arendustööd teha kindlad tegevused mida kosemudelis ei ole. Nende tegevuste abil on võimalik kliendile kuvada <br>
+        programmile keskse tähtsusega osi, enne kui neid täielikult arendama hakkatakse. Tehakse näiteks, kas mingisugune <br>
+        kasutajaliidese prototüüp või programmeeritakse vähese testimise läbitud MVP (Minimum Viable Product) mis omab <br>
+        ainult programmi nõuetes kirjeldatud keskset funktsionaalsust. Näiteks: <br>
+        Ütleme, et tegemist on failikonverteriga, siis ei oma ta suurt kasutajaliidese kujundust, ega isegi kõiki formaate <br>
+        mis lõpp-programm teisendama peab, vaid ainult demonstreerib seda funktsionaalsust käsurea abil, osaliselt. Teisendab <br>
+        ainult kahte-kolme formaati.
+    </p><br><br>
+    <h2>Kuidas on inkrementaalses arenduses tegevuste käik?</h2><br>
+    <p>
+        <h3>Nõuete kirjeldus</h3>
+        Kirjedatakse ära üldjoontes mida valminud tarkvaratoode tegema peab. Nõuded jagatakse ka ära tähtsamateks ning <br>
+        vähem tähtsamateks. Tähtsamad nõuded on tavaliselt need, mis kliendile rohkem väärtust toob. Siin määratakse ära ka <br>
+        kuida arendustöö toimima hakkab, ehk millistes inkrementides klient oma toodet saama hakkab - ehk kui pika aja tagant. <br>
+        Iga inkrement peab tarnima kliendile mingisuguse tiite funktsioneeriva osakese.
+    
+        <h3>Süsteemi arendus</h3><br>
+    Kui nõuded on olemas, ning ära jaotatud prioriteedi järgi hakatakse toodet tarnima peale nüüd teostavat arendusprotsessi. <br>
+    Siin arendataksegi välja vastatavalt nõuetele programmiosa. Iga inkrementi saab arendada kasutades erinevaid eksisteerivaid <br>
+    arendusmudeleid. Näiteks: <br>
+        On olemas nõuetes programmiosa mille arendus ei vaja dünaamilist nõuetele jälgimist nagu faili sisse lugemine<br>
+    Või faili kirjutamine - seda programmiosa saab arendada näiteks <a href="../SDLCModels/waterfall.html">Kosemudeli</a> abil. See milline <br>
+    arendusmudel kõige paremini sobib on arendusmeeskonna enda otsustada vastavalt sellele milline nõutud programmiosa parasjagu <br>
+    arenduses on. <br>
+
+    <h3>Arendusega samaegne nõuete täiendus</h3>
+        Kui arendatava ürogrammiosa nõuded on külmutatud (ehk hetkel, arendustöö ajal, on nende muutmine võimatu), siis muude <br>
+        arendusse tulevikus minevate osade nõudeid on võimalik veel muuta. Kui on vaja ka juba arendatud ning kliendile üleantud <br>
+        inkremendi nõudeid muuta, siis seda saab ka teha, kuid olemasoleva inkremendi mille nõudeid muudeti, läheb tagasi arendavate <br>
+        tööde nimekirja, pärast nende nõuete muutmist. Ehk, kõik nõuded mis ei kuulu parasjagu arendatava programmiosa juurde on <br>
+        lahtised. Mis tähendab ka ühtlasi seda, et projekti nõuded selle alustamiseks ei pea olema täielikult kirjeldatud. <br>
+        
+    <h3>Tarne ja integratsioon</h3><br>
+    Nõuetele vastava programmiosa valmimisel tarnitakse programmiosa - ehk inkrement - kliendile. Klient saab siis selle <br>
+    koheselt kasutusse võtta - või omapoolselt läbi testida - ja täpsustada edasisi projektis olevaid nõudeid ning anda tagasisidet <br>
+    juba valminud programmiosade kohta. Selle tagasiside põhjal võidakse tuletada ka juba valminud osadele uusi nõudeid. Klient saab <br> 
+    ka valminud osa koheselt integreerida muu olemasoleva keskkonna või eelnevalt arendatud toote süsteemidega. <br>
+    </p><br><br>
+    <table>
+    <thead>
+       <tr>
+          <th>Head küljed</th>
+          <th>Halvad küljed</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr>
+          <td>Klient saab valminud tooteosa katsetada/kasutada ilma, et kogu projekt valmis oleks</td>
+          <td>Progressi jälgimine on keerukas - Arendustöö progressi ei jälgita enam arendatud <br>
+            nõuete järgi vaid arenduskiiruspõhiselt - kui palju igas ajavahemikus arendada on võimalik.</td>
+       </tr>
+       <tr>
+          <td>Iga inkrement on arendatav erineva arendusmudeli abil</td>
+          <td>Projekti struktuur degredeerub iga uue muudatusega, kuna nõuded on muutuvad, ning <br>
+            struktuur ei pruugi muudatuste arvule või muudatuste vajadustele vastu pidada - tekib spagett.</td>
+       </tr>
+       <tr>
+          <td>Kulutused on väiksemad - kuna kasutaja nõuded on muutuvad, aga muudatusi saab sisse viia <br>
+        arendustsükli käigus on muudatuste sisseviimise kulutused väiksemad, kui neid teha pärast <br>
+        esmast arendustsükli lõppviimist</td>
+          <td>Koodi korrashoiu mitteteostamine tõstab hiljem paranduste ja muudatuste sisseviimise kulusid</td>
+       </tr>
+       <tr>
+          <td></td>
+          <td></td>
+       </tr>
+    </tbody>
+    </table><br><br>
+    <h2>Arendusmudeli joonis:</h2>
+    <img src="../Images/inkrementaalne.png">
+    <h2>Inkremetaalne ja Iteratiivne?</h2><br>
+    <p>
+        Kuna inkrementaalne arendus ja iteratiivne arendus on lihtsalt sarnased sõnad, kipuvad nad inimestel sassi minema, <br>
+        aga nad siisku tähendavad eri asju: <br>
+        <ul>
+            <li><h3>Inkrementaalne Arendus</h3> - on tarkaratoote arendus kus iga inkremendi raames valmib tomiv tarkvara osa. <br>
+            Valmis saadud tarvara toote osake integreeritakse muu süsteemiga mis eelnevalt arendatud on.</li>
+            <li><h3>Iteratiivne Arendus</h3> - on muutmisstrateegia kus parandatakse või tehakse ringi juba olemasolev süsteem, <br>
+                et seda siis täiustada, ehk olemasolev süsteem saab uue ja parema variandi - ehk iteratsiooni.</li>
+        </ul>
+    </p><br><br>
+    <a href="https://eopearhiiv.edu.ee/e-kursused/eucip/arendus/1222_inkrementaalne_arendusmudel.html">EUCIP</a>
+</body>
+</html>
