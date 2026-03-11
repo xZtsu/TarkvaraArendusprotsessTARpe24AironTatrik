@@ -1,0 +1,269 @@
+/* ═══════════════════════════════════════════════════
+   TEMPLEOS AESTHETIC CSS
+   16-color VGA palette, bitmap-feel, divine terminal
+   Drop-in stylesheet — zero HTML changes required
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --black:    #000000;
+  --blue:     #0000AA;
+  --green:    #00AA00;
+  --cyan:     #00AAAA;
+  --lgray:    #AAAAAA;
+  --dgray:    #555555;
+  --lgreen:   #55FF55;
+  --lcyan:    #55FFFF;
+  --lred:     #FF5555;
+  --lmagenta: #FF55FF;
+  --yellow:   #FFFF55;
+  --white:    #FFFFFF;
+}
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+@keyframes scanlines {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+@keyframes flicker {
+  0%   { opacity: 1; }
+  92%  { opacity: 1; }
+  93%  { opacity: 0.96; }
+  94%  { opacity: 1; }
+  97%  { opacity: 0.98; }
+  100% { opacity: 1; }
+}
+@keyframes boot-in {
+  from { opacity: 0; transform: scaleY(0.02); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
+/* ── RESET ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── BASE ────────────────────────────────────────── */
+html {
+  background: var(--black);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--white);
+  background: var(--black);
+  min-height: 100vh;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+  animation: boot-in 0.35s ease-out, flicker 10s infinite;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* CRT scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  animation: scanlines 0.08s linear infinite;
+}
+
+/* CRT vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── HEADINGS ────────────────────────────────────── */
+h1 {
+  font-size: 18px;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px var(--yellow), 0 0 20px rgba(255, 255, 85, 0.3);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--cyan);
+}
+
+h1::before {
+  content: '█ ';
+  color: var(--cyan);
+}
+
+h2 {
+  font-size: 15px;
+  color: var(--lcyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px var(--cyan);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--cyan);
+  padding-bottom: 3px;
+}
+
+h2::before {
+  content: '▸ ';
+  color: var(--lgreen);
+}
+
+/* ── PARAGRAPH ───────────────────────────────────── */
+p {
+  color: var(--lgray);
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--cyan);
+  background: rgba(0, 170, 170, 0.04);
+}
+
+/* ── LINKS ───────────────────────────────────────── */
+a {
+  color: var(--lcyan);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.1s, text-shadow 0.1s;
+}
+
+a::before { content: '['; color: var(--dgray); }
+a::after  { content: ']'; color: var(--dgray); }
+
+a:hover {
+  color: var(--yellow);
+  text-shadow: 0 0 6px var(--yellow);
+}
+
+a:visited {
+  color: var(--lmagenta);
+}
+
+/* ── LISTS ───────────────────────────────────────── */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 16px;
+  border: 1px solid var(--dgray);
+}
+
+ul li {
+  padding: 5px 12px;
+  border-bottom: 1px dotted var(--dgray);
+  color: var(--lgray);
+  font-size: 13px;
+  transition: background 0.1s;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li:hover {
+  background: rgba(0, 170, 170, 0.07);
+}
+
+ul li::before {
+  content: '► ';
+  color: var(--lgreen);
+}
+
+/* inactive items (no link) */
+ul li:not(:has(a)) {
+  color: var(--dgray);
+}
+
+ul li:not(:has(a))::before {
+  color: var(--dgray);
+}
+
+/* ── TABLE ───────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 520px;
+  margin: 10px 0;
+  font-size: 13px;
+  border: 1px solid var(--dgray);
+}
+
+td {
+  border: 1px solid var(--dgray);
+  padding: 5px 12px;
+  color: var(--lgray);
+  vertical-align: middle;
+}
+
+/* first column = label */
+td:first-child {
+  color: var(--yellow);
+  background: rgba(0, 0, 170, 0.25);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  width: 160px;
+}
+
+tr:nth-child(even) td            { background: rgba(85, 85, 85, 0.08); }
+tr:nth-child(even) td:first-child { background: rgba(0, 0, 170, 0.3); }
+tr:hover td                       { background: rgba(0, 170, 170, 0.07); }
+tr:hover td:first-child            { background: rgba(0, 0, 170, 0.4); }
+
+/* ── IMAGES ──────────────────────────────────────── */
+img {
+  display: block;
+  max-width: 600px;
+  max-height: 600px;
+  image-rendering: pixelated;
+  border: 2px solid var(--lgray);
+  box-shadow: 0 0 10px rgba(0, 170, 170, 0.3), 4px 4px 0 var(--dgray);
+  margin: 4px 0;
+}
+
+/* ── STATUS BAR ──────────────────────────────────── */
+html::after {
+  content: '▸ SYSTEM READY  |  C:\\AIRON\\PORTFOLIO>  |  GOD IS REAL  |  HolyC v3.3';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--blue);
+  color: var(--lgreen);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  padding: 2px 10px;
+  border-top: 1px solid var(--lgray);
+  z-index: 1000;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 600px) {
+  body           { padding: 12px 10px 50px; }
+  h1             { font-size: 14px; }
+  table          { font-size: 12px; }
+  img            { max-width: 120px; }
+  td:first-child { width: 110px; }
+}
