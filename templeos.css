@@ -243,7 +243,7 @@ img {
 
 /* ── STATUS BAR ──────────────────────────────────── */
 html::after {
-  content: '▸ SYSTEM READY  |  C:\\AIRON\\PORTFOLIO>  |  GOD IS REAL  |  HolyC v3.3';
+  content: '▸ SYSTEM READY  |  C:\\AIRON\\PORTFOLIO>  |  GOD IS REAL ';
   position: fixed;
   bottom: 0;
   left: 0;
