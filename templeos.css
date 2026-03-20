@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
    TEMPLEOS AESTHETIC CSS
-   16-color VGA palette, bitmap-feel, divine terminal
+   White/gray background — divine terminal, light mode
    Drop-in stylesheet — zero HTML changes required
    ═══════════════════════════════════════════════════ */
 
@@ -17,6 +17,7 @@
   --lmagenta: #FF55FF;
   --yellow:   #FFFF55;
   --white:    #FFFFFF;
+  --red:      #AA0000;
 }
 
 /* ── ANIMATIONS ──────────────────────────────────── */
@@ -27,7 +28,7 @@
 @keyframes flicker {
   0%   { opacity: 1; }
   92%  { opacity: 1; }
-  93%  { opacity: 0.96; }
+  93%  { opacity: 0.97; }
   94%  { opacity: 1; }
   97%  { opacity: 0.98; }
   100% { opacity: 1; }
@@ -46,7 +47,7 @@
 
 /* ── BASE ────────────────────────────────────────── */
 html {
-  background: var(--black);
+  background: var(--cyan);
   scroll-behavior: smooth;
 }
 
@@ -54,7 +55,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
   line-height: 1.7;
-  color: var(--white);
+  color: var(--black);
   background: var(--white);
   min-height: 100vh;
   max-width: 860px;
@@ -63,6 +64,8 @@ body {
   animation: boot-in 0.35s ease-out, flicker 10s infinite;
   position: relative;
   overflow-x: hidden;
+  border-left: 1px solid var(--lgray);
+  border-right: 1px solid var(--lgray);
 }
 
 /* CRT scanline overlay */
@@ -74,8 +77,8 @@ body::before {
     to bottom,
     transparent 0px,
     transparent 2px,
-    rgba(0, 0, 0, 0.15) 2px,
-    rgba(0, 0, 0, 0.15) 4px
+    rgba(0, 0, 0, 0.06) 2px,
+    rgba(0, 0, 0, 0.06) 4px
   );
   pointer-events: none;
   z-index: 9999;
@@ -88,8 +91,8 @@ body::after {
   position: fixed;
   inset: 0;
   background: radial-gradient(ellipse at center,
-    transparent 55%,
-    rgba(0, 0, 0, 0.6) 100%
+    transparent 60%,
+    rgba(0, 0, 0, 0.18) 100%
   );
   pointer-events: none;
   z-index: 9998;
@@ -98,13 +101,12 @@ body::after {
 /* ── HEADINGS ────────────────────────────────────── */
 h1 {
   font-size: 18px;
-  color: var(--blue);
+  color: var(--red);
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 0 8px var(--blue), 0 0 20px rgba(0, 204, 255, 0.3);
   padding-bottom: 6px;
   margin-bottom: 14px;
-  border-bottom: 2px solid var(--lred);
+  border-bottom: 2px solid var(--blue);
 }
 
 h1::before {
@@ -117,7 +119,6 @@ h2 {
   color: var(--blue);
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 0 6px var(--blue);
   margin-top: 20px;
   margin-bottom: 10px;
   border-bottom: 1px solid var(--blue);
@@ -129,33 +130,44 @@ h2::before {
   color: var(--blue);
 }
 
+h3, h4, h5, h6 {
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+h3::before { content: '» '; color: var(--dgray); }
+h4::before { content: '> '; color: var(--dgray); }
+
 /* ── PARAGRAPH ───────────────────────────────────── */
 p {
-  color: var(--lred);
+  color: var(--black);
   margin-bottom: 12px;
   padding: 6px 10px;
-  border-left: 3px solid var(--cyan);
-  background: rgba(0, 170, 170, 0.04);
+  border-left: 3px solid var(--blue);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* ── LINKS ───────────────────────────────────────── */
 a {
-  color: var(--lcyan);
+  color: var(--blue);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.1s, text-shadow 0.1s;
+  transition: color 0.1s;
 }
 
 a::before { content: '['; color: var(--dgray); }
 a::after  { content: ']'; color: var(--dgray); }
 
 a:hover {
-  color: var(--yellow);
-  text-shadow: 0 0 6px var(--yellow);
+  color: var(--red);
+  text-decoration: underline;
 }
 
 a:visited {
-  color: var(--lmagenta);
+  color: #550055;
 }
 
 /* ── LISTS ───────────────────────────────────────── */
@@ -163,13 +175,14 @@ ul {
   list-style: none;
   padding: 0;
   margin: 10px 0 16px;
-  border: 1px solid var(--lred);
+  border: 1px solid var(--blue);
+  background: var(--lgray);
 }
 
 ul li {
   padding: 5px 12px;
-  border-bottom: 1px dotted var(--lred);
-  color: var(--lred);
+  border-bottom: 1px solid var(--blue);
+  color: var(--blue);
   font-size: 13px;
   transition: background 0.1s;
 }
@@ -179,21 +192,21 @@ ul li:last-child {
 }
 
 ul li:hover {
-  background: rgba(0, 170, 170, 0.07);
+  background: rgba(0, 0, 170, 0.1);
 }
 
 ul li::before {
   content: '► ';
-  color: var(--lgreen);
+  color: var(--blue);
 }
 
 /* inactive items (no link) */
 ul li:not(:has(a)) {
-  color: var(--dgray);
+  color: var(--black);
 }
 
 ul li:not(:has(a))::before {
-  color: var(--dgray);
+  color: var(--black);
 }
 
 /* ── TABLE ───────────────────────────────────────── */
@@ -203,20 +216,21 @@ table {
   max-width: 520px;
   margin: 10px 0;
   font-size: 13px;
-  border: 1px solid var(--lred);
+  border: 1px solid var(--blue);
 }
 
 td {
-  border: 1px solid var(--lred);
+  border: 1px solid var(--blue);
   padding: 5px 12px;
-  color: var(--lgray);
+  color: var(--black);
+  background: var(--white);
   vertical-align: middle;
 }
 
-/* first column = label */
+/* first column = label: blue bg, white text */
 td:first-child {
-  color: var(--yellow);
-  background: rgba(0, 0, 170, 0.25);
+  color: var(--white);
+  background: var(--blue);
   font-weight: bold;
   text-transform: uppercase;
   font-size: 11px;
@@ -225,10 +239,8 @@ td:first-child {
   width: 160px;
 }
 
-tr:nth-child(even) td            { background: rgba(85, 85, 85, 0.08); }
-tr:nth-child(even) td:first-child { background: rgba(0, 0, 170, 0.3); }
-tr:hover td                       { background: rgba(0, 170, 170, 0.07); }
-tr:hover td:first-child            { background: rgba(0, 0, 170, 0.4); }
+tr:hover td              { background: #F0F4FF; }
+tr:hover td:first-child  { background: #0000CC; }
 
 /* ── IMAGES ──────────────────────────────────────── */
 img {
@@ -236,24 +248,118 @@ img {
   max-width: 600px;
   max-height: 600px;
   image-rendering: pixelated;
-  border: 2px solid var(--lred);
-  box-shadow: 0 0 10px rgba(0, 170, 170, 0.3), 4px 4px 0 var(--dgray);
+  border: 2px solid var(--blue);
+  box-shadow: 3px 3px 0 var(--lgray);
   margin: 4px 0;
+}
+
+/* ── PROGRAM WINDOW ──────────────────────────────── */
+#prog-window {
+  border: 2px solid var(--blue);
+  background: var(--white);
+  margin: 8px 0 16px;
+  box-shadow: 3px 3px 0 var(--lgray);
+}
+
+#prog-window-titlebar {
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--lgray);
+  user-select: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#prog-window-titlebar .win-title {
+  color: var(--white);
+}
+
+#prog-window-titlebar .win-controls {
+  display: flex;
+  gap: 3px;
+}
+
+#prog-window-titlebar .wbtn {
+  background: var(--lgray);
+  color: var(--black);
+  border: 1px solid var(--white);
+  width: 16px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 13px;
+  text-align: center;
+  cursor: default;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+#prog-window-body {
+  padding: 14px 16px;
+}
+
+/* ── SITE HEADER ─────────────────────────────────── */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-bottom: 2px solid var(--lgray);
+  z-index: 1001;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+#site-header .header-title {
+  color: var(--white);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#site-header .header-title::before {
+  content: '█ ';
+  color: var(--lgray);
+}
+
+#site-header .header-clock {
+  color: var(--yellow);
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+}
+
+/* push body content below the fixed header */
+body {
+  padding-top: 36px;
 }
 
 /* ── STATUS BAR ──────────────────────────────────── */
 html::after {
-  content: '▸ SYSTEM READY  |  C:\\AIRON\\PORTFOLIO>  |  GOD IS REAL ';
+  content: '▸ SYSTEM READY  |  C:\\AIRON\\PORTFOLIO>  |  GOD IS REAL';
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background: var(--blue);
-  color: var(--lgreen);
+  color: var(--white);
   font-family: 'Courier New', Courier, monospace;
   font-size: 11px;
   padding: 2px 10px;
-  border-top: 1px solid var(--lgray);
+  border-top: 2px solid var(--lgray);
   z-index: 1000;
   letter-spacing: 1px;
   pointer-events: none;
@@ -261,9 +367,34 @@ html::after {
 
 /* ── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 600px) {
-  body           { padding: 12px 10px 50px; }
+  body           { padding: 12px 10px 50px; padding-top: 36px; }
   h1             { font-size: 14px; }
   table          { font-size: 12px; }
-  img            { max-width: 120px; }
+  img            { max-width: 100%; }
   td:first-child { width: 110px; }
 }
+
+/*
+ * ── HEADER + CLOCK INJECTION ─────────────────────
+ * Paste this <script> tag at the end of each HTML
+ * <body>, or link it as a separate .js file.
+ * ──────────────────────────────────────────────────
+ *
+ * <script>
+ * (function () {
+ *   var h = document.createElement('div');
+ *   h.id = 'site-header';
+ *   h.innerHTML =
+ *     '<span class="header-title">Airon Tatrik — Portfolio</span>' +
+ *     '<span class="header-clock" id="hclock"></span>';
+ *   document.body.insertBefore(h, document.body.firstChild);
+ *   function tick() {
+ *     var n = new Date();
+ *     var p = function(x){ return String(x).padStart(2,'0'); };
+ *     document.getElementById('hclock').textContent =
+ *       p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds());
+ *   }
+ *   tick(); setInterval(tick, 1000);
+ * })();
+ * </script>
+ */
