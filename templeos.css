@@ -55,7 +55,7 @@ body {
   font-size: 14px;
   line-height: 1.7;
   color: var(--white);
-  background: var(--black);
+  background: var(--white);
   min-height: 100vh;
   max-width: 860px;
   margin: 0 auto;
@@ -98,40 +98,40 @@ body::after {
 /* ── HEADINGS ────────────────────────────────────── */
 h1 {
   font-size: 18px;
-  color: var(--yellow);
+  color: var(--blue);
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 0 8px var(--yellow), 0 0 20px rgba(255, 255, 85, 0.3);
+  text-shadow: 0 0 8px var(--blue), 0 0 20px rgba(0, 204, 255, 0.3);
   padding-bottom: 6px;
   margin-bottom: 14px;
-  border-bottom: 2px solid var(--cyan);
+  border-bottom: 2px solid var(--lred);
 }
 
 h1::before {
   content: '█ ';
-  color: var(--cyan);
+  color: var(--blue);
 }
 
 h2 {
   font-size: 15px;
-  color: var(--lcyan);
+  color: var(--blue);
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 0 6px var(--cyan);
+  text-shadow: 0 0 6px var(--blue);
   margin-top: 20px;
   margin-bottom: 10px;
-  border-bottom: 1px solid var(--cyan);
+  border-bottom: 1px solid var(--blue);
   padding-bottom: 3px;
 }
 
 h2::before {
   content: '▸ ';
-  color: var(--lgreen);
+  color: var(--blue);
 }
 
 /* ── PARAGRAPH ───────────────────────────────────── */
 p {
-  color: var(--lgray);
+  color: var(--lred);
   margin-bottom: 12px;
   padding: 6px 10px;
   border-left: 3px solid var(--cyan);
@@ -163,13 +163,13 @@ ul {
   list-style: none;
   padding: 0;
   margin: 10px 0 16px;
-  border: 1px solid var(--dgray);
+  border: 1px solid var(--lred);
 }
 
 ul li {
   padding: 5px 12px;
-  border-bottom: 1px dotted var(--dgray);
-  color: var(--lgray);
+  border-bottom: 1px dotted var(--lred);
+  color: var(--lred);
   font-size: 13px;
   transition: background 0.1s;
 }
@@ -203,11 +203,11 @@ table {
   max-width: 520px;
   margin: 10px 0;
   font-size: 13px;
-  border: 1px solid var(--dgray);
+  border: 1px solid var(--lred);
 }
 
 td {
-  border: 1px solid var(--dgray);
+  border: 1px solid var(--lred);
   padding: 5px 12px;
   color: var(--lgray);
   vertical-align: middle;
@@ -236,7 +236,7 @@ img {
   max-width: 600px;
   max-height: 600px;
   image-rendering: pixelated;
-  border: 2px solid var(--lgray);
+  border: 2px solid var(--lred);
   box-shadow: 0 0 10px rgba(0, 170, 170, 0.3), 4px 4px 0 var(--dgray);
   margin: 4px 0;
 }
