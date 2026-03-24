@@ -83,6 +83,7 @@ body::before {
   pointer-events: none;
   z-index: 9999;
   animation: scanlines 0.08s linear infinite;
+  
 }
 
 /* CRT vignette */
@@ -375,27 +376,45 @@ html::after {
   td:first-child { width: 110px; }
 }
 
+/* ── BACKGROUND EFFECTS — GUTTER CLIP ───────────── */
 /*
- * ── HEADER + CLOCK INJECTION ─────────────────────
- * Paste this <script> tag at the end of each HTML
- * <body>, or link it as a separate .js file.
- * ──────────────────────────────────────────────────
+ * Hard-clips the JS effect layers (canvas + overlay div) to the
+ * blue margin gutters only. The clip polygon is updated by JS on
+ * resize, but this baseline hides both elements until JS sets the
+ * real clip, preventing a flash of full-screen effects on load.
  *
- * <script>
- * (function () {
- *   var h = document.createElement('div');
- *   h.id = 'site-header';
- *   h.innerHTML =
- *     '<span class="header-title">Airon Tatrik — Portfolio</span>' +
- *     '<span class="header-clock" id="hclock"></span>';
- *   document.body.insertBefore(h, document.body.firstChild);
- *   function tick() {
- *     var n = new Date();
- *     var p = function(x){ return String(x).padStart(2,'0'); };
- *     document.getElementById('hclock').textContent =
- *       p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds());
- *   }
- *   tick(); setInterval(tick, 1000);
- * })();
- * </script>
+ * The actual clip-path value is written by templeos-effects.js
+ * via applyClip() — these rules just establish the property so
+ * the browser doesn't ignore the JS assignment on first paint.
  */
+
+#effects-canvas,
+#effects-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  /* Baseline: clip to nothing until JS computes real gutter bounds.
+     Prevents any bleed over content during the first frame. */
+  clip-path: polygon(0 0, 0 0, 0 0);
+
+  /* Keep below CRT scanline (9999) and vignette (9998) overlays */
+  z-index: 9990;
+}
+
+#effects-overlay {
+  z-index: 9991;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* On narrow viewports where no gutters exist, suppress entirely */
+@media (max-width: 860px) {
+  #effects-canvas,
+  #effects-overlay {
+    display: none;
+  }
+}
