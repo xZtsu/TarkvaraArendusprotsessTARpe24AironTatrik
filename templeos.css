@@ -58,7 +58,7 @@ body {
   color: var(--black);
   background: var(--white);
   min-height: 100vh;
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px 16px 60px;
   animation: boot-in 0.35s ease-out, flicker 10s infinite;
@@ -412,7 +412,7 @@ html::after {
 }
 
 /* On narrow viewports where no gutters exist, suppress entirely */
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   #effects-canvas,
   #effects-overlay {
     display: none;

@@ -9,14 +9,102 @@
 <body>
     
     <h1>Vooskeem/Flowchart</h1>
-    <p></p>
+    <p>Vooskeemid on algoritmi või protsessi visuaalsed kujutised.
+         Vooskeemid kasutavad algoritmi või protsessi sammude järjestuse selgitamiseks sümboleid/kujundeid, nagu nooled, ristkülikud ja rombid.</p>
 </br></br>
 
-    <h2></h2>
-    
+    <h2>Kus Vooskeemi kasutatakse</h2>
+    <p>Vooskeemi kasutatakse keeruliste protsesside ja algoritmide visualiseerimiseks, et muuta need kõigile osapooltele kergemini mõistetavaks.
+         See on asendamatu tööriist tarkvaraarenduses loogika planeerimisel, ärimaailmas töövoogude dokumenteerimisel ja uute töötajate väljaõppel ning tootmises standardsete tegevusjuhiste kinnistamisel.</p>
 
+</br>
+    <h1>Kujundite tähendused ja näidised</h1>
+    <p>Vooskeemide loomiseks kasutatakse erinevat tüüpi kaste. Kõik erinevat tüüpi kastid on omavahel ühendatud noolejoontega. Noolejooni kasutatakse juhtimisvoo kuvamiseks.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Nimi</th>
+                <th>Sümbol</th>
+                <th>Kirjeldus</th>
+                <th>Kasutusnäide</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Terminal/Terminator</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/Terminal.png" alt="Terminal"></td>
+                <td>See kast on ovaalse kujuga ja seda kasutatakse programmi alguse või lõpu tähistamiseks.</td>
+                <td>Programmi käivitamine ja lõpetamine</td>
+            </tr>
+            <tr>
+                <td>Voojoon (Flow arrow)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/FlowArrow.png" alt="Flow arrow"></td>
+                <td>See noolejoon kujutab algoritmi või protsessi voogu. See esindab protsessi voo suunda.</td>
+                <td>Kasutatakse iga sümboli ühendamiseks teostusjärjekorras. </td>
+            </tr>
+            <tr>
+                <td>Data or Input/Output (Andmed või Sisend/Väljund)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/Data.png" alt="Data"></td>
+                <td>See on rööpkülikukujuline kast, mille sisse on kirjutatud sisendid või väljundid.
+                     See kujutab põhimõtteliselt süsteemi või algoritmi sisenevat ja süsteemist või algoritmist väljuvat teavet.</td>
+                <td>Kasutatakse alati, kui süsteemi siseneb või süsteemist väljub teavet .</td>
+            </tr>
+            <tr>
+                <td>Process (toiming)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/Process.png" alt="Process"></td>
+                <td>See on ristkülikukujuline kast, millesse programmeerija kirjutab algoritmi põhitoimingud või programmi põhiloogika.
+                     See on vooskeemi tuum, kuna peamised töötlemiskoodid on kirjutatud sellesse kasti.</td>
+                <td>Kasutatakse mis tahes üldise sammu jaoks</td>
+            </tr>
+            <tr>
+                <td>Decision (Otsus)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/Decision.png" alt="Decision"></td>
+                <td>See on rombikujuline kast, mille sisse on kirjutatud juhtlaused nagu "if", tingimus nagu "a > 0" jne. Sellest on kaks teed, üks on "jah" ja teine ​​on "ei".</td>
+                <td>Kasutatakse alati, kui tekib jah/ei küsimus või tõene/vale tingimus.</td>
+            </tr>
+            <tr>
+                <td>On-Page Connector/Reference (Leheküljevaheline viide)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/OnPageReference.png" alt="On-Page Reference"></td>
+                <td>See ringikujuline joonis kujutab vooskeem jätkuvat järgmiste sammudega. See joonis tuleb kasutusele siis, kui ruumi on vähe ja vooskeem on pikk.
+                     Selle ringi sees on iga numbriline sümbol ja sama numbriline sümbol kuvatakse enne jätku, et kasutaja saaks jätkust aru.</td>
+                <td>Kasutatakse keerulises diagrammis segaste ristuvate joonte vältimiseks.</td>
+            </tr>
+            <tr>
+                <td>Off-Page Connector/Reference (Leheküljevaheline viide)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/OffPageReference.png" alt="Off-Page Reference"></td>
+                <td>Ühendab vooskeemi jätkuga teisel lehel.</td>
+                <td>Kasutatakse siis, kui vooskeem on nii suur, et see ulatub mitmele lehele.</td>
+            </tr>
+            <tr>
+                <td>Document (Dokument)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/Document.png" alt="Document"></td>
+                <td>Esindab protsessis loodud või kasutatud füüsilist dokumenti või aruannet.</td>
+                <td>Kasutatakse juhul, kui protsess hõlmab dokumendi (paberkandjal või elektroonilise) loomist või sellele viitamist.</td>
+            </tr>
+            <tr>
+                <td>Stored Data (Salvestatud andmed)</td>
+                <td><img src="./UML_IMAGE/FLOWSHAPES/StoredData.png" alt="Stored Data"></td>
+                <td>Tähistab failis või andmebaasis (salvestuskohas) talletatud andmeid.</td>
+                <td>Kasutatakse alati, kui teavet salvestatakse või sealt andmebaasist või failist hangitakse.</td>
+            </tr>
+        </tbody>
+    </table>
+</br></br>
+
+    <h1>Bitcoin Kalkulaator Näidis</h1>
+    <ul>
+        <li>Algus: Protsess algab ovaaliga ("Start").</li>
+        <li>Tegevused: Kasutaja liigub läbi ristkülikute ("User selects offer"), mis tähistavad konkreetseid tegevus-samme.</li>
+        <li>Valikupunktid: Rombid ("Pay with Bitcoin?") suunavad kasutaja erinevatele teedele sõltuvalt tema valikust – kas krediitkaardi või Bitcoini makse juurde.</li>
+        <li>Tagasiside ring: Kui tekib viga ("Errors?" -> Yes), suunab voojoon kasutaja tagasi andmete sisestamise juurde, moodustades loogilise tsükli.</li>
+    </ul>
+    <img src="./UML_IMAGE/BitcoinKalkulaator.png" alt="Bitcoin Calculator Flowchart">
+
+</br>
     <h2>ALLIKAD:</h2>
-    <a href="link">site</a>  
+    <a href="https://www.geeksforgeeks.org/dsa/an-introduction-to-flowcharts/">geeksforgeeks</a>  
+    <a href="https://www.geeksforgeeks.org/computer-science-fundamentals/what-is-a-flowchart-and-its-types/">geeksforgeeks</a>  
+    <a href="https://flowchartai.org/blog/flowchart-symbols-guide">flowchartai.org</a>  
     <script src="../Header.js"></script>
      <script src="../templeos-effects.js"></script>
 </body>

@@ -12,7 +12,7 @@
     yellow:'#FFFF55', magenta:'#FF55FF',
   };
 
-  var CONTENT_MAX = 860;
+  var CONTENT_MAX = 1100;
 
   function bounds() {
     var vw = window.innerWidth;
