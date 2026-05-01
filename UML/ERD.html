@@ -8,16 +8,90 @@
 </head>
 <body>
     
-    <h1>ERD (Entity-Relationship Diagram)</h1><
-    <p></p>
+    <h1>ERD (Entity-Relationship Diagram)</h1>
+    <p>Entity Relationship Diagram (ERD) on graafiline esitus, mis näitab, kuidas entiteedid, näiteks inimesed, objektid või mõisted, on süsteemis omavahel seotud.
+         
+    </p>
 </br></br>
 
-    <h2></h2>
+    <h2>Kus ER-Diagrammi kasutatakse</h2>
+    <p>ERD-sid kasutatakse tavaliselt andmebaaside kujundamisel entiteetide ja nende atribuutide vaheliste seoste visualiseerimiseks.</p>
     
+</br></br>
+    <h1>Olemitabel ja selle sisu</h1>
+    <p>
+        Olemitabel esindab reaalset objekti (nt Kasutaja, Toode, Tellimus). <br>
+        <b>Tabelis peab/saab olema:</b>
+    </p>
+    
+        <ul>
+                <b>Atribuudid:</b> Tabeli veerud (nt nimi, e-mail, hind).</br>
+            <b>Andmetüübid:</b> Määratlus, mis tüüpi andmed väljas on (tekst, number, kuupäev).</br>
+            <b>Võtmed:</b> Tunnused, mis aitavad ridu tuvastada ja tabeleid ühendada.
+        </ul>
+    </br>
+    
+ 
+    
+    <h1>Võtme tüübid</h1>
+    <p>Võtmed on kriitilised andmete terviklikkuse tagamiseks</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Võtme tüüp</th>
+                <th>Selgitus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Primary Key (PK)</strong></td>
+                <td>Esmaseks võtmeks on unikaalne tunnus, mis ei kordu kunagi (nt Isikukood või ID).</td>
+            </tr>
+            <tr>
+                <td><strong>Foreign Key (FK)</strong></td>
+                <td>Välisvõti, mis viitab teise tabeli PK-le, luues nendevahelise seose.</td>
+            </tr>
+            <tr>
+                <td><strong>Composite Key</strong></td>
+                <td>Liitvõti, mis koosneb kahest või enamast väljast, et tagada unikaalsus.</td>
+            </tr>
+            <tr>
+                <td><strong>Key (Võti)</strong></td>
+                <td>Üldine termin suvalise välja kohta, mida kasutatakse andmete otsimiseks.</td>
+            </tr>
+        </tbody>
+    </table>
+</br>
+    <h1>Ühenduselemendid ja otsade tähendused</h1>
+    <p>Seosed näitavad, kui palju ühe tabeli kirjeid saab olla seotud teise tabeli kirjetega.</p>
+
+<div>
+        <p><b>1:1 (Üks ühele):</b> Üks inimene saab omada ühte passi.</p>
+        <img src="./UML_IMAGE/onetoone.png" alt="1:1 seos"><br>
+        
+        <p><b>1:N (Üks mitmele):</b> Ühel kliendil võib olla mitu tellimust.</p>
+        <img src="./UML_IMAGE/onetomany.png" alt="1:N seos"><br>
+        
+        <p><b>N:N (Mitu mitmele):</b> Mitmel õpilasel saab olla mitu erinevat kursust.</p>
+        <img src="./UML_IMAGE/manytomany.png" alt="N:N seos">
+    </div>
+    </br>
+
+   <h1>Võtmete ja tabelite kasutamine koos:</h1>
+    <p>
+        Kui meil on tabel "Kliendid" (PK: KlientID) ja tabel "Tellimused", siis seose loomiseks <br>
+        lisame "Tellimused" tabelisse välja "KlientID", mis on seal Foreign Key (FK). <br>
+        Nii teab andmebaas täpselt, milline tellimus kuulub millisele kliendile.
+    </p>
+</br>
+
+
+
 
     <h2>ALLIKAD:</h2>
-    <a href="link">site</a>  
-
+    <a href="https://www.geeksforgeeks.org/dbms/introduction-of-er-model/">geeksforgeeks</a>  
+    <a href="https://www.geeksforgeeks.org/dbms/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/">geeksforgeeks</a>  
+    
     <script src="../Header.js"></script>
      <script src="../templeos-effects.js"></script>
 </body>
